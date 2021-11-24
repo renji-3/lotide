@@ -1,26 +1,30 @@
 let eqArrays = function(a, b) {
+  if (a.length !== b.length) {
+    return false;
+  }
   for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      return false;
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] !== b[j]) {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
-  return true;
 };
 
-let assertArraysEqual = function(arr) {
-  if (arr === false) {
+let assertArraysEqual = function(arr, arr2) {
+  if (eqArrays(arr, arr2) === false) {
     console.log('shits fugaze');
   } else {
-    if (arr === true) {
-      console.log('shits legit');
-    }
+    console.log('shits legit');
   }
 };
 
 
 
 
-assertArraysEqual((eqArrays)([1, 2, 3], [3, 2, 1])); // => false
-assertArraysEqual((eqArrays)([1, 2, 3], [1, 2, 3])); // => true
-assertArraysEqual((eqArrays)(["1", "2", "3"], ["1", "2", "3"])); // => true
-assertArraysEqual((eqArrays)(["1", "2", "3"], ["1", "2", 3])); // => false
+assertArraysEqual([1, 2, 3], [3, 2, 1]); // => false
+assertArraysEqual([1, 2, 3], [1, 2, 3]); // => true
+assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]); // => true
+assertArraysEqual(["1", "2", "3"], ["1", "2", 3]); // => false
