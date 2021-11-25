@@ -23,7 +23,6 @@ const countLetters = function(str) {
   return count;
 };
 
-
-
-
-console.log(countLetters('lighthouse in the house'));
+const output = countLetters("lighthouse in the house");
+console.log(output);
+assertEqual(output["h"], 4);
