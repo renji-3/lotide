@@ -1,4 +1,19 @@
-// FUNCTION IMPLEMENTATION
+let eqArrays = function(a, b) {
+  if (a.length !== b.length) {
+    return false;
+  }
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] !== b[j]) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+};
+
+
 const eqObjects = function(object1, object2) {
   
   const array1 = Object.keys(object1);
@@ -21,10 +36,19 @@ const eqObjects = function(object1, object2) {
 
 
 const assertObjectsEqual = function(actual, expected) {
-  if (eqObjects(actual, expected) === false) {
-    console.log('shits fugaze');
-  } else {
-    console.log('shits legit');
-  }
+  let lastResult = eqObjects(actual, expected);
+  if (lastResult === false) {
+    console.log('ur fucked');
+  } else
+    console.log('ur bless');
 };
 
+
+const ab = { a: "1", b: "2" };
+const ba = { b: "2", a: "1" };
+assertObjectsEqual(eqObjects(ab, ba), false); // fucked
+
+console.log(eqObjects(ab, ba));
+
+const abc = { a: "1", b: "2", c: "3" };
+assertObjectsEqual(eqObjects(ab, abc), false); // bless
