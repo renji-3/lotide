@@ -29,13 +29,13 @@ const words = ["ground", "control", "to", "major", "tom"];
 
 const map = function(array, cb) {
   const results = [];
-  for (let item of array) {
-    results.push(cb(item));
+  for (let item of array) { //loop the array
+    results.push(cb(item)); //push the callback condition into the array
   }
   return results;
 };
 
-const results1 = map(words, word => word[0]);
+const results1 = map(words, word => word[0]); //callback condition is first letter of every string (still confused on where word came from, but i think thats a new variable being defined)
 
 console.log(results1);
 
